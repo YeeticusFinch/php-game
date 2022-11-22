@@ -53,6 +53,13 @@ public class Main : MonoBehaviour
         c++;
         if (c > 10 && started)
         {
+            if (credibility < 0)
+                credibility = 0;
+            if (ram <= 0)
+            {
+                started = false;
+                Application.Quit();
+            }
             ram_text.text = "RAM Available: " + Mathf.Round(ram) + " / " + max_ram;
             credibility_text.text = "Credibility: " + Mathf.Round(credibility * 10) / 10;
             score_text.text = "Score: " + score;

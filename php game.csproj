@@ -687,6 +687,7 @@
     <Compile Include="Assets\Resources\scripts\Enemy.cs" />
     <Compile Include="Assets\Resources\scripts\Main.cs" />
     <Compile Include="Assets\Resources\scripts\Movement.cs" />
+    <Compile Include="Assets\Resources\scripts\Projectile.cs" />
     <Compile Include="Assets\Resources\scripts\SetDifficulty.cs" />
     <Compile Include="Assets\Resources\scripts\ShootButton.cs" />
   </ItemGroup>

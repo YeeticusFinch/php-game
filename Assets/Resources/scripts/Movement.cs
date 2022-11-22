@@ -13,7 +13,10 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (SystemInfo.deviceType == DeviceType.Console || SystemInfo.deviceType == DeviceType.Desktop)
+        {
+            transform.position += Vector3.up * 100;
+        }
     }
 
     // Update is called once per frame
