@@ -23,7 +23,12 @@ public class Main : MonoBehaviour
     public static float max_ram = 64;
     public static int score = 0;
 
+    public static bool gameOver = false;
+
     public static float credibility = 10;
+
+    public GameObject gameOverText;
+    private Vector3 gotl;
 
     public static void StartGame()
     {
@@ -36,7 +41,8 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gotl = gameOverText.transform.position;
+        gameOverText.transform.position += Vector3.up * 10;
 
     }
 
@@ -51,6 +57,12 @@ public class Main : MonoBehaviour
     private void FixedUpdate()
     {
         c++;
+
+        if (gameOver)
+        {
+            gameOverText.transform.position -= Vector3.up * 10;
+            gameOver = false;
+        }
         if (c > 10 && started)
         {
             if (credibility < 0)
@@ -58,7 +70,7 @@ public class Main : MonoBehaviour
             if (ram <= 0)
             {
                 started = false;
-                Application.Quit();
+                gameOver = true;
             }
             ram_text.text = "RAM Available: " + Mathf.Round(ram) + " / " + max_ram;
             credibility_text.text = "Credibility: " + Mathf.Round(credibility * 10) / 10;

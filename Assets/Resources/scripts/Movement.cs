@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         bool yeet = false;
 
         if (Input.GetKey(GetKeyCode(keycode.ToLower()[0])))
@@ -46,6 +47,15 @@ public class Movement : MonoBehaviour
         }
         if (!yeet)
             held = false;
+    }
+
+    private void FixedUpdate()
+    {
+
+        if (Main.gameOver)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
     }
 
     private readonly Dictionary<char, KeyCode> _keycodeCache = new Dictionary<char, KeyCode>();

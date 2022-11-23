@@ -61,6 +61,11 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (Main.gameOver)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
         if (go && Main.started)
         {
             transform.position += Vector3.left * Time.fixedDeltaTime * speed * (1 + Main.diff*0.23f) * (1 + Main.score*0.03f) * 0.5f;
@@ -79,7 +84,8 @@ public class Enemy : MonoBehaviour
                 if (insta_lose)
                 {
                     Main.started = false;
-                    Application.Quit();
+                    Main.gameOver = true;
+                    //Application.Quit();
                 }
                 GameObject.Destroy(this.gameObject);
             }

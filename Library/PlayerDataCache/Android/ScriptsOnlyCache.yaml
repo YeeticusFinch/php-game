@@ -361,7 +361,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: e9b12eaa56c4e7a1938bf635c1d21cb3
+      Hash: 33ac65ed6bd747a92bf6717bde4fed40
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Main

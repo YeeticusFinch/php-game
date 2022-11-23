@@ -21,37 +21,47 @@ public class ShootButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!show_on_low_credibility || Main.credibility <= 5)
+        if (Main.gameOver)
         {
-            if (projectile.GetComponent<TextMesh>().text.Length < 2)
-                projectile.GetComponent<TextMesh>().text = temp_text;
-            bool yeet = false;
-            if (Input.GetButton("Fire1"))
+            GameObject.Destroy(this.gameObject);
+        }
+        else if (Main.started)
+        {
+            if (!show_on_low_credibility || Main.credibility <= 5)
             {
-                //Debug.Log("Click");
-                if (GetComponent<BoxCollider2D>().bounds.Contains(new Vector3(Main.mouseWorldPosition.x, Main.mouseWorldPosition.y, 0)))
+                if (projectile.GetComponent<TextMesh>().text.Length < 2)
+                    projectile.GetComponent<TextMesh>().text = temp_text;
+                bool yeet = false;
+                if (Input.GetButton("Fire1"))
                 {
-                    //Debug.Log(name + " pressed");
-                    held = true;
-                    yeet = true;
-                    //Debug.Log("Clicked " + name);
-                    if (crash)
+                    //Debug.Log("Click");
+                    if (GetComponent<BoxCollider2D>().bounds.Contains(new Vector3(Main.mouseWorldPosition.x, Main.mouseWorldPosition.y, 0)))
                     {
-                        Main.started = false;
-                        Application.Quit();
-                    } else
-                    {
-                        Elephpant.projectile = projectile;
-                        Elephpant.shooting = true;
+                        //Debug.Log(name + " pressed");
+                        held = true;
+                        yeet = true;
+                        //Debug.Log("Clicked " + name);
+                        if (crash)
+                        {
+                            Main.started = false;
+                            Main.gameOver = true;
+                            //Application.Quit();
+                        }
+                        else
+                        {
+                            Elephpant.projectile = projectile;
+                            Elephpant.shooting = true;
+                        }
                     }
                 }
+                if (!yeet)
+                    held = false;
             }
-            if (!yeet)
-                held = false;
-        } else if (projectile.GetComponent<TextMesh>().text.Length > 1)
-        {
-            temp_text = projectile.GetComponent<TextMesh>().text;
-            projectile.GetComponent<TextMesh>().text = "";
+            else if (projectile.GetComponent<TextMesh>().text.Length > 1)
+            {
+                temp_text = projectile.GetComponent<TextMesh>().text;
+                projectile.GetComponent<TextMesh>().text = "";
+            }
         }
     }
 }

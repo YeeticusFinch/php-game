@@ -39,6 +39,12 @@ public class Elephpant : MonoBehaviour
     bool moving = false;
     private void FixedUpdate()
     {
+
+        if (Main.gameOver)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
+
         moving = false;
         if (Main.started)
         {

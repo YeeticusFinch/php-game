@@ -3,7 +3,12 @@ Play as a sentient php codebase on a journey through the web
 
 ![elephpant fancy](https://user-images.githubusercontent.com/50182007/203436657-b2d6df3d-93c6-4f26-9698-470dfc60f24d.png)
 
+Playthrough:
+https://youtu.be/WtdTliUBK6o
+
 ## How to play
+
+WASD to move (unless you're on android, in which case you will have arrow keys)
 
 2 scores to keep track of: RAM, credibility
 

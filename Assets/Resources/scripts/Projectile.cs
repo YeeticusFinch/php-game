@@ -25,6 +25,11 @@ public class Projectile : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (Main.gameOver)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
         if (fly && Main.started)
         {
             if (gameObject.layer != 0)
