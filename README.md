@@ -9,6 +9,8 @@ https://youtu.be/WtdTliUBK6o
 
 ## How to play
 
+Important Note: You play as a process running on AWS, so if Amazon or AWS goes down, you lose
+
 WASD to move (unless you're on android, in which case you will have arrow keys)
 
 2 scores to keep track of: RAM, credibility
